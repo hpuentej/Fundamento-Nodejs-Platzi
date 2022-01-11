@@ -1,24 +1,17 @@
-function inicio(){
-    console.log('Iniciando proceso...')
+function encuentro(nombre, cierrex){
+    setTimeout( () =>{ 
+        console.log('Iniciando proceso...');        
+        console.log(`Hola ${nombre}`);                
+        cierrex(nombre);}
+        ,2000);  
 }
 
-function fin(){
-    console.log('...Terminando proceso')
+function cierre(nombre){
+    setTimeout(() =>{ 
+        console.log(`Adios ${nombre}`);
+        console.log('...Terminando proceso')}
+        ,1000)
 }
 
-function saludo(nombre, miCallback){
-    setTimeout(
-        () => {miCallback();
-        console.log(`Hola ${nombre}`);
-        },2000);  
-}
+encuentro('Hans',cierre);
 
-function despedida(nombre, otroCallback){
-    setTimeout(
-        () => {console.log(`Adios ${nombre}`);
-    otroCallback();}
-    ,1000)
-}
-
-saludo('Hans',inicio);
-despedida('Hans',fin);
